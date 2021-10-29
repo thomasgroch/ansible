@@ -4,6 +4,4 @@ dotfiles_repo_directory: "/home/tg/.dotfiles-bare"
 dotfiles_user: "tg"
 
 dotfiles_checkout:
-  - .zshrc
-  - .zsh/
-  - .vimrc
+  - /*
