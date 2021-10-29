@@ -3,7 +3,6 @@ eternalterminal
 fswatch
 gitkraken
 # grex
-paru
 pass-git-helper
 realvnc-vnc-server
 # spark
