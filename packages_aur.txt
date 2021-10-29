@@ -44,7 +44,7 @@ autossh
 # autojump
 
 # Everything you need to get started with Heroku
-heroku-cli
+# heroku
 
 # Command-line interface for WordPress
 #wp-cli
