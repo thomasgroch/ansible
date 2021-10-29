@@ -90,7 +90,6 @@ autossh
 usbutils
 
 # jdownloader
-transmission-qt
 #transmission-gtk
 # parsehub
 # mysqlworkbench
