@@ -4,7 +4,7 @@
 ANSIBLEUSER="tg"
 BRANCH="{{ branch | default('master') }}"
 LOGFILE="/var/log/ansible.log"
-REPO="https://github.com/thomasgroch/dotfiles"
+REPO="https://github.com/thomasgroch/ansible"
 
 VAULT_ID="ansible/workstation/tg@gopass-client.py"
 PRECMD="sudo systemd-inhibit --who='ansible-pull' --why='provisioning'"
