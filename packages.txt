@@ -6,7 +6,7 @@ base-devel
 # Multi-panel tabbed file manager
 spacefm
 # for video editing
-kdenlive
+# kdenlive
 
 # Graphical network analyzer and capture tool
 # wireshark
