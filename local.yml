@@ -6,9 +6,11 @@
 
   # tasks to complete before running roles
   pre_tasks:
-    - name: pre-run | update repositories equivalent of "pacman -Sy"
+    - name: pre-run | update repositories equivalent of "pacman -Syu"
       tags: always
-      pacman: update_cache=yes
+      pacman:
+        update_cache: yes
+        upgrade: yes
       changed_when: False
       when: ansible_distribution == "Archlinux"
 

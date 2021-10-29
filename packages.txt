@@ -315,8 +315,6 @@ wdiff
 youtube-dl
 # The Dart SDK
 dart
-# Programatically correct mistyped console commands
-thefuck
 # Monitor data's progress through a pipe
 pv
 # Statistics utility to count lines of code
