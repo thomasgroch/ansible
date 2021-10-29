@@ -2,7 +2,6 @@ autojump
 eternalterminal
 fswatch
 gitkraken
-# grex
 pass-git-helper
 realvnc-vnc-server
 # spark
@@ -14,6 +13,8 @@ haguichi
 font-downloader
 # apostrophe
 newsflash
+# Command-line tool for generating regular expressions
+# grex
 
 mailspring
 minbrowser
@@ -29,7 +30,7 @@ hakuneko-desktop
 # # Very fast implementation of tldr in Rust
 # tealdeer
 # Successor of namebench a DNS benchmark utility
-nameinator
+# nameinator
 
 # Monitor a directory for changes and run a shell command. Req by gitwatch
 fswatch
@@ -41,11 +42,9 @@ spark
 autossh
 # Shell extension to jump to frequently used directories
 # autojump
-# Command-line tool for generating regular expressions
-grex
 
 # Everything you need to get started with Heroku
-heroku
+heroku-cli
 
 # Command-line interface for WordPress
 #wp-cli
