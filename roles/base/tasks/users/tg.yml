@@ -10,7 +10,8 @@
   # ansible.builtin.debug:
   #   var: mypassword
   vars:
-    mypassword: "{{ lookup('community.general.passwordstore', 'ansible/workstation/tg missing=create length=32 nosymbols=true')}}"
+    mypassword: "{{ lookup('community.general.passwordstore', 'ansible/workstation/tg missing=empty length=32 nosymbols=true') | default('123456', true) }}"
+    # mypassword: "{{ lookup('community.general.passwordstore', 'ansible/workstation/tg missing=create length=32 nosymbols=true')}}"
   user:
     name: tg
     group: tg
