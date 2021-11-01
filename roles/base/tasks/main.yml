@@ -3,7 +3,6 @@
   tags: always
 
 - block:
-  - import_tasks: software/password_store.yml
   # Make sure users exist on the system
   - import_tasks: users/root.yml
   - import_tasks: users/velociraptor.yml
