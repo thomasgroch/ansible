@@ -42,8 +42,8 @@
 # [vault]
 # suppress_gopass_errors = True
 #
-# This is a double edged sword, this gets around errors running playbooks when a user mightn ot be able to decrypt the
-# password. But using `ansible-vault ecrypt --encrypt-vault-id X ....` when you don't have access to X will result in a random 
+# This is a double edged sword, this gets around errors running playbooks when a user might not be able to decrypt the
+# password. But using `ansible-vault encrypt --encrypt-vault-id X ....` when you don't have access to X will result in a random 
 # password being used. Since it is random and not saved, you won't be able to decrypt the information again. 
 #
 # Use this option at your own discression, but I think the advantages outweigh the costs. 
