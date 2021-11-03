@@ -67,45 +67,45 @@
 # The ansible.builtin.git module does not seem to support checking out bare repositories, have to do it with shell commands
 - name: Dotfiles - Check if directory exists
   stat:
-    path: "{{ dotfiles_repo_directory }}"
+    path: "{{ repo_dir }}"
   register: repo_directory
 
 - name: Dotfiles - Clone repository
-  command: "git clone --bare {{ dotfiles_repo }} {{ dotfiles_repo_directory }}"
+  command: "git clone --bare {{ dotfiles_repo }} {{ repo_dir }}"
   become: yes
   become_user: "{{ username }}"
   when: not repo_directory.stat.exists
 
 - name: Dotfiles - Enable sparse checkout
-  command: "git --git-dir={{ dotfiles_repo_directory }} --work-tree={{ dotfiles_user_registered.home }} config --local core.sparseCheckout true"
+  command: "git --git-dir={{ repo_dir }} --work-tree={{ work_dir }} config --local core.sparseCheckout true"
   become: yes
   become_user: "{{ username }}"
 
 - name: Dotfiles - Disable showing untracked files
-  command: "git --git-dir={{ dotfiles_repo_directory }} --work-tree={{ dotfiles_user_registered.home }} config --local status.showUntrackedFiles no"
+  command: "git --git-dir={{ repo_dir }} --work-tree={{ work_dir }} config --local status.showUntrackedFiles no"
   become: yes
   become_user: "{{ username }}"
 
 # Copy the dotfiles_checkout variable into a file for checkout
 - name: Dotfiles - Configure Git sparse checkout
   copy:
-    dest: "{{ dotfiles_repo_directory }}/info/sparse-checkout"
+    dest: "{{ repo_dir }}/info/sparse-checkout"
     content: "{{ dotfiles_checkout | join('\n') }}"
   become: yes
   become_user: "{{ username }}"
 
 - name: Dotfiles - Checkout Git repository
-  command: "git --git-dir={{ dotfiles_repo_directory }} --work-tree={{ dotfiles_user_registered.home }} checkout --force" # This will overwrite existing files!
+  command: "git --git-dir={{ repo_dir }} --work-tree={{ work_dir }} checkout --force" # This will overwrite existing files!
   become: yes
   become_user: "{{ username }}"
 
 - name: Dotfiles - Pull Git repository
-  command: "git --git-dir={{ dotfiles_repo_directory }} --work-tree={{ dotfiles_user_registered.home }} pull"
+  command: "git --git-dir={{ repo_dir }} --work-tree={{ work_dir }} pull"
   become: yes
   become_user: "{{ username }}"
 
 - name: Dotfiles - Update submodules
-  command: "git --git-dir={{ dotfiles_repo_directory }} --work-tree={{ dotfiles_user_registered.home }} -C {{ dotfiles_user_registered.home }} submodule update --init --recursive {{ item }}" # Git wants to cd into the directory first before using the submodule command
+  command: "git --git-dir={{ repo_dir }} --work-tree={{ work_dir }} -C {{ work_dir }} submodule update --init --recursive {{ item }}" # Git wants to cd into the directory first before using the submodule command
   become: yes
   become_user: "{{ username }}"
   loop: "{{ dotfiles_checkout | map('regex_replace', '^.*\\/\\*', '~/') | list }}" # Recurse through all files/directories and attempt to recursively clone submodules. Just does nothing if there are none. Regex replace /* to ~/ for compatability with dotfiles_checkout.
@@ -173,13 +173,13 @@
 #   become_user: "{{ username }}"
 #   tags: dotfiles,tg,users,barerepo,update
 
-# - name: Git | Create symbolic link
-#   file:
-#     src: "{{ repo_dir }}"
-#     dest: "{{ work_dir }}.git"
-#     owner: tg
-#     group: tg
-#     state: link
-#   become_user: "{{ username }}"
-#   tags: dotfiles,tg,users,barerepo
+- name: Git | Create symbolic link
+  file:
+    src: "{{ repo_dir }}"
+    dest: "{{ work_dir }}.git"
+    owner: "{{ username }}"
+    group: "{{ username }}"
+    state: link
+  become_user: "{{ username }}"
+  tags: dotfiles,tg,users,barerepo
 
