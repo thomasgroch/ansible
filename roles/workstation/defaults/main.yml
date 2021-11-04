@@ -16,3 +16,5 @@ gnome_enable_extensions:
   - 'sound-output-device-chooser@kgshank.net'
   - 'bluetooth-quick-connect@bjarosze.gmail.com'
   - 'cpufreq@konkor'
+  - 'nightthemeswitcher@romainvigier.fr'
+  - 'ding@rastersoft.com'
