@@ -52,12 +52,6 @@
     - users/tg/ssh/tgroch_id_rsa.pub
     # - users/tg/ssh/tg_id_ed25519.pub
 
-- debug:
-    msg: "user: {{ username }}"
-
-- debug:
-    msg: "userhome: {{ userhome }}"
-
 - name: Dotfiles - Get home directory
   user:
     name: "{{ username }}"
