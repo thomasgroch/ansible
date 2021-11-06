@@ -55,6 +55,9 @@
 - debug:
     msg: "user: {{ username }}"
 
+- debug:
+    msg: "userhome: {{ userhome }}"
+
 - name: Dotfiles - Get home directory
   user:
     name: "{{ username }}"
