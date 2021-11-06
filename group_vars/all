@@ -14,5 +14,6 @@ enable_dnscrypt_proxy:             false
 ###############################################################################
 # for all roles doing actions for user                                        #
 ###############################################################################
-username:                          "{{ansible_user|default(lookup('env', 'USER')) }}"
+# username:                          "{{ansible_user|default(lookup('env', 'USER')) }}"
+username: "tg"
 userhome:                          "{{ lookup('env','HOME') }}"
