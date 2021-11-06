@@ -5,7 +5,7 @@ Port {{ ssh_port |default(22) }}
 Protocol 2
 
 # Authentication:
-AllowUsers {{ ssh_users | default("{{ non_root_user }}") }}
+AllowUsers {{ ssh_users | default("{{ username }}") }}
 ChallengeResponseAuthentication no
 HostbasedAuthentication no
 LoginGraceTime 120

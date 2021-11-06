@@ -1,5 +1,4 @@
 ---
-username: "tg"
 dotfiles_repo: "https://github.com/thomasgroch/dotfiles.git"
 repo_dir: /home/tg/.bare-dotfiles/
 work_dir: /home/tg/
